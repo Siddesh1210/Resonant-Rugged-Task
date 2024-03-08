@@ -7,10 +7,14 @@ import "swiper/css/pagination";
 import "../assets/css/TopWatchesHome.swiper.css";
 
 import { Pagination } from "swiper/modules";
+import ShimmerEffect from "./ShimmerEffect";
 
 export default function TopLaptopsHome() {
   //Small screen 2 card and big screen 4 card
   const [slidesPerView, setSlidesPerView] = useState(4);
+  const [justTrendData, setJustTrendData] = useState(null);
+
+  const shimmerArray=[1,2,3,4,5,6];
 
   useEffect(() => {
     function handleResize() {
@@ -20,13 +24,26 @@ export default function TopLaptopsHome() {
         setSlidesPerView(4);
       }
     }
-
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  async function getBestSellerData() {
+    const response = await fetch(
+      "https://curious-cap-bull.cyclic.app/products/just-trending"
+    );
+    const result = await response.json();
+    // console.log(result);
+    setJustTrendData(result.laptops);
+  }
+
+  useEffect(() => {
+    getBestSellerData();
+  }, [justTrendData]);
+
   return (
     <>
       <div className="top-watch">
@@ -41,7 +58,7 @@ export default function TopLaptopsHome() {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide className="swiper-slide">
+        {/* <SwiperSlide className="swiper-slide">
           <div className="swiper-card">
             <img
               src="https://www.fireboltt.com/cdn/shop/files/grenade-black-steel_1_360x.png?v=1687251706"
@@ -55,97 +72,36 @@ export default function TopLaptopsHome() {
             </div>
             <p>1.39" HD Display BT Calling</p>
           </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <div className="swiper-card">
-            <img
-              src="https://www.fireboltt.com/cdn/shop/files/ultimate-black_1_360x.png?v=1683028277"
-              alt="Watch"
-            />
-            <div className="details">
-              <p className="name">Ultimate</p>
-              <p className="star">
-                5 <i className="bi bi-star-half text-warning"></i>
-              </p>
-            </div>
-            <p>1.39" HD Display BT Calling</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <div className="swiper-card">
-            <img
-              src="https://www.fireboltt.com/cdn/shop/files/dagger-luxe-black-ss_1_360x.png?v=1686048646"
-              alt="Watch"
-            />
-            <div className="details">
-              <p className="name">Luxe</p>
-              <p className="star">
-                5 <i className="bi bi-star-half text-warning"></i>
-              </p>
-            </div>
-            <p>1.39" HD Display BT Calling</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <div className="swiper-card">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0137/0292/2286/products/supernova-black_1_360x.png?v=1673500420"
-              alt="Watch"
-            />
-            <div className="details">
-              <p className="name">Supernova</p>
-              <p className="star">
-                5 <i className="bi bi-star-half text-warning"></i>
-              </p>
-            </div>
-            <p>1.39" HD Display BT Calling</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <div className="swiper-card">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0137/0292/2286/files/asteroid-orange_1_360x.png?v=1692944180"
-              alt="Watch"
-            />
-            <div className="details">
-              <p className="name">Asteroid</p>
-              <p className="star">
-                5 <i className="bi bi-star-half text-warning"></i>
-              </p>
-            </div>
-            <p>1.39" HD Display BT Calling</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <div className="swiper-card">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0137/0292/2286/files/ninja-call-pro-max_360x.png?v=1687756591"
-              alt="Watch"
-            />
-            <div className="details">
-              <p className="name">Ninja Pro</p>
-              <p className="star">
-                5 <i className="bi bi-star-half text-warning"></i>
-              </p>
-            </div>
-            <p>1.39" HD Display BT Calling</p>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide className="swiper-slide">
-          <div className="swiper-card">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0137/0292/2286/products/ninja-calling-pro-plus-black_1_360x.png?v=1675430352"
-              alt="Watch"
-            />
-            <div className="details">
-              <p className="name">Tank</p>
-              <p className="star">
-                5 <i className="bi bi-star-half text-warning"></i>
-              </p>
-            </div>
-            <p>1.39" HD Display BT Calling</p>
-          </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
+        {justTrendData && justTrendData.length > 0 ? (
+          justTrendData.map((item) => {
+            return (
+              <SwiperSlide key={item.productId} className="swiper-slide">
+                <div className="swiper-card">
+                  <img src={item.productImage} alt="Watch" />
+                  <div className="details">
+                    <p className="name">{item.productName}</p>
+                    <p className="star">
+                      {item.rating}{" "}
+                      <i className="bi bi-star-half text-warning"></i>
+                    </p>
+                  </div>
+                  <p style={{fontSize:"15px",color:"grey"}}>{item.description}</p>
+                </div>
+              </SwiperSlide>
+            );
+          })
+        ) : (
+        //   <h3>No Data was fetched from Api</h3>
+        //Since no data was fetched so have used Shimmer Effect for enhancing user experience
+        shimmerArray.map((shimmer,index)=>{
+            return(
+                <SwiperSlide key={index} className="swiper-slide">
+                    <ShimmerEffect/>
+              </SwiperSlide>
+            )
+        })
+        )}
       </Swiper>
       <div className="show-more-div">
         <button className="learn-more show-more-btn">
