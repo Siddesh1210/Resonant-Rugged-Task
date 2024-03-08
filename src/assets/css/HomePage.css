@@ -93,3 +93,65 @@
 .shop-btn:hover:before {
   --progress: 0;
 }
+
+.image-container img {
+  height: 100%;
+  object-fit: contain;
+}
+.image-container
+{
+    transition: transform 0.5s ease-in-out;
+}
+
+.image-container:hover
+{
+    transform: scale(0.9);
+}
+
+.row-1 > .col-md-3:first-child {
+  background-color: black;
+}
+
+.row-1 > .col-md-3:nth-child(2) {
+  background-color: #ffd500;
+}
+
+.row-2 > .col-md-5:nth-child(1) {
+  background-color: #e8e8e8;
+}
+
+.row-2 > .col-md-3:nth-child(2) {
+  background-color: #1c31e8;
+}
+
+.row-2 > .col-md-3:nth-child(3) {
+  background-color: #2f9400;
+}
+
+.eight h2 {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 30px;
+  letter-spacing: 1px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 22px 0;
+  grid-gap: 22px;
+  background: linear-gradient(to right, #76ddf4 0%, #228fee 50%, #7300ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+@media (max-width: 400px) {
+  .eight h2 {
+    font-size: 20px !important;
+  }
+}
+
+.eight h2:after,
+.eight h2:before {
+  content: " ";
+  display: block;
+  border-bottom: 1px solid #000000;
+}
