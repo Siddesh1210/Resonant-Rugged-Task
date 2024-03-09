@@ -6,8 +6,10 @@ import HomeImg3 from "../assets/images/HomeImg3.png";
 import HomeImg2 from "../assets/images/HomeImg2.png";
 import HomeImg1 from "../assets/images/HomeImg1.png";
 import "../assets/css/HomePage.css";
+import { useNavigate } from "react-router-dom";
 
 const HomeProducts = () => {
+    const navigate=useNavigate();
   return (
     <div className="container-fluid my-3">
       <div className="row justify-content-center my-3">
@@ -19,7 +21,7 @@ const HomeProducts = () => {
         <div className="col-md-3 image-container rounded m-2">
           <img src={HomeImg1} alt="Banner_Image" className="img-fluid" loading="lazy" />
         </div>
-        <div className="col-md-3 image-container rounded m-2">
+        <div className="col-md-3 image-container rounded m-2" onClick={()=>navigate("/products/allwatches")}>
           <img src={HomeImg2} alt="Banner_Image" className="img-fluid" loading="lazy" />
         </div>
         <div className="col-md-5 image-container rounded m-2 bg-danger">
@@ -42,7 +44,7 @@ const HomeProducts = () => {
           />
         </div>
         <div className="col-md-3 image-container rounded m-2 ">
-          <img src={HomeImg5} alt="Banner_Image" className="img-fluid" loading="lazy" />
+          <img src={HomeImg5} alt="Banner_Image" className="img-fluid" loading="lazy" onClick={()=>navigate("/products/allwatches")}/>
         </div>
         <div className="col-md-3 image-container rounded m-2">
           <img src={HomeImg6} alt="Banner_Image" className="img-fluid" loading="lazy" />

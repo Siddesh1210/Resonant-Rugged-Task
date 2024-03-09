@@ -2,12 +2,17 @@ import React from "react";
 import "../assets/css/Navbar.css";
 import Logo from "../assets/images/Resonate_Logo.jpg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
   return (
     <nav className="navbar navbar-expand-md bg-body-tertiary">
       <div className="container-fluid">
-        <Link to="/"><img src={Logo} className="logo" alt="logo" /></Link>
+        <Link to="/">
+          <img src={Logo} className="logo" alt="logo" />
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -22,7 +27,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <Link className="nav-link" aria-current="page" to="/">
                 Home
               </Link>
             </li>
@@ -61,7 +66,7 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/cart">
                 Cart <i className="bi bi-cart3"></i>
-                <sup>0</sup>
+                <sup>{cartItems.length}</sup>
               </Link>
             </li>
           </ul>

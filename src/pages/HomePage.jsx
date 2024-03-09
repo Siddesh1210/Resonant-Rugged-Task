@@ -23,7 +23,7 @@ const HomePage = () => {
   const fetchData = async (url, setDataFunction) => {
     try {
       const data = await useFetchApiData(url);
-        console.log(data);
+        // console.log(data);
       setDataFunction(data);
     } catch (error) {
       // console.log(error);
@@ -32,11 +32,11 @@ const HomePage = () => {
   };
 
   // Fetch data on component mount
-//   useEffect(() => {
-//     fetchData(bestSellerUrl, setBestSellerData);
-//     fetchData(hotDealUrl, setHotDealData);
-//     fetchData(justTrendUrl, setJustTrendData);
-//   }, []);
+  useEffect(() => {
+    fetchData(bestSellerUrl, setBestSellerData);
+    fetchData(hotDealUrl, setHotDealData);
+    fetchData(justTrendUrl, setJustTrendData);
+  }, []);
 
   return (
     <>

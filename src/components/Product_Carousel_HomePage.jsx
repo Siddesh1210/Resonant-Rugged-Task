@@ -15,9 +15,6 @@ export default function Product_Carousel_HomePage({
   bestSellerData,
   showMoreBtn,
 }) {
-  //   console.log(bestSellerData);
-  //   console.log(title);
-  //   console.log(showMoreBtn);
   //Small screen 2 card and big screen 4 card
   const [slidesPerView, setSlidesPerView] = useState(4);
   const navigate = useNavigate();
@@ -39,7 +36,7 @@ export default function Product_Carousel_HomePage({
   }, []);
 
   function handleShowMoreBtn(showMoreBtn) {
-    console.log("HandleShowMoreBtn Function Called with : ", showMoreBtn);
+    // console.log("HandleShowMoreBtn Function Called with : ", showMoreBtn);
     showMoreBtn == "watches"
       ? navigate("/products/allwatches")
       : showMoreBtn == "earbuds"
@@ -81,7 +78,7 @@ export default function Product_Carousel_HomePage({
               return (
                 <SwiperSlide key={item.productId} className="swiper-slide">
                   <div className="swiper-card">
-                    <img src={item.productImage} alt="Watch"  loading="lazy" />
+                    <img src={item.productImage} alt="Watch" loading="lazy" />
                     <div className="details">
                       <p className="name">{item.productName}</p>
                       <p className="star">

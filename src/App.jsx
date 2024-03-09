@@ -10,14 +10,20 @@ import Watches from "./pages/Watches.ProductPage";
 import Earbuds from "./pages/Earbuds.ProductPage";
 import Laptops from "./pages/Laptops.ProductPage";
 import CartPage from "./pages/CartPage";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import { ToastContainer } from "react-toastify";
+import ScrollToTop from "./components/ScrollToTop";
 
 const AppLayout = () => {
   return (
-    <>
-      <Navbar />
-      <Outlet />
-      <Footer />
-    </>
+    <Provider store={appStore}>
+      <ScrollToTop />
+        <Navbar />
+        <Outlet />
+        <ToastContainer />
+        <Footer />
+    </Provider>
   );
 };
 
