@@ -4,7 +4,7 @@
 This is an E-commerce web application that allows users to view products, add and remove them to their cart, and view their cart contents. Also this project ensure to maintain proper folder strcuture and follow the Single Responsibility principle by each component.
 
 # Features
-1.View all products and filter them by category \n
+1.View all products and filter them by category
 2.Add products to the cart
 3.View and remove products from the cart and place order
 
