@@ -1,15 +1,18 @@
 import React from "react";
 import "../assets/css/ViewProducts.css";
 import ShimmerEffect from "./ShimmerEffect.jsx";
-import { addItem, removeItem } from "../utils/cartSlice.js";
+import { addItem } from "../utils/cartSlice.js";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useParams } from "react-router-dom";
 
 const ViewProducts = ({ allProducts,categories }) => {
+    console.log("All Products: " + allProducts);
   // console.log(allProducts);
   const [filterData, setFilterData] = useState(allProducts);
+  console.log("Filter Data: " + filterData);
   const [selectedOption, setSelectedOption] = useState("All");
   const dispatch = useDispatch();
   //ShimerArray
@@ -28,8 +31,8 @@ const ViewProducts = ({ allProducts,categories }) => {
         return product.category === selectedOption.toLowerCase();
       });
       setFilterData(newFilterData);
-      console.log(allProducts);
-      console.log(filterData);
+    //   console.log(allProducts);
+    //   console.log(filterData);
     }
   }, [selectedOption, allProducts]);
 
@@ -65,10 +68,10 @@ const ViewProducts = ({ allProducts,categories }) => {
                 onChange={handleChange}
               >
                 <option value="all">All</option>
-                <option value="luxury">{categories[0]}</option>
-                <option value="smartwatch">{categories[1]}</option>
-                <option value="ninja">{categories[2]}</option>
-                <option value="sport">{categories[3]}</option>
+                <option value={categories[0]}>{categories[0]}</option>
+                <option value={categories[1]}>{categories[1]}</option>
+                <option value={categories[2]}>{categories[2]}</option>
+                <option value={categories[3]}>{categories[3]}</option>
               </select>
             </div>
           </div>
@@ -82,7 +85,7 @@ const ViewProducts = ({ allProducts,categories }) => {
                 <div className="col-md-3 p-2" key={product.productId}>
                   <img
                     src={product.images[0]}
-                    alt=""
+                    alt="" lazy="loading"
                     className="img-fluid bg-dark bg-gradient rounded"
                   />
                   <div className="row justify-content-around align-items-center">
@@ -100,7 +103,7 @@ const ViewProducts = ({ allProducts,categories }) => {
                     <div className="col-md-6">
                       <p style={{ fontSize: "17px" }}>
                         <b>₹{product.salePrice}</b>{" "}
-                        <strike>₹{product.mrp}</strike>
+                        <del style={{textDecoration:"line-through"}}>₹{product.mrp}</del>
                       </p>
                     </div>
                     <div className="col-md-6 cart-div">
@@ -135,7 +138,7 @@ const ViewProducts = ({ allProducts,categories }) => {
                 <div className="col-md-3 p-2" key={product.productId}>
                   <img
                     src={product.images[0]}
-                    alt=""
+                    alt="" lazy="loading"
                     className="img-fluid bg-dark bg-gradient rounded"
                   />
                   <div className="row justify-content-around align-items-center">
@@ -153,7 +156,7 @@ const ViewProducts = ({ allProducts,categories }) => {
                     <div className="col-md-6">
                       <p style={{ fontSize: "17px" }}>
                         <b>₹{product.salePrice}</b>{" "}
-                        <strike>₹{product.mrp}</strike>
+                        <del style={{textDecoration:"line-through"}}>₹{product.mrp}</del>
                       </p>
                     </div>
                     <div className="col-md-6 cart-div">

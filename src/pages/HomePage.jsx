@@ -4,6 +4,9 @@ import HomeProducts from "../components/HomeProducts";
 import Product_Carousel_HomePage from "../components/Product_Carousel_HomePage";
 import { useState, useEffect } from "react";
 import { useFetchApiData } from "../hooks/useFetchApiData";
+import { bestSellerUrl } from "../constants/bestSellerUrl";
+import { hotDealUrl } from "../constants/HotDealUrl";
+import { justTrendUrl } from "../constants/justTrendUrl";
 
 const HomePage = () => {
   // All the state variables for storing fetched data and error
@@ -11,13 +14,6 @@ const HomePage = () => {
   const [hotDealData, setHotDealData] = useState(null);
   const [justTrendData, setJustTrendData] = useState(null);
   const [error, setError] = useState(null);
-
-  // URL for fetching best seller data
-  const bestSellerUrl = "https://resonate-api.cyclic.app/products/best-seller";
-  // URL for fetching hot deal data
-  const hotDealUrl = "https://resonate-api.cyclic.app/products/hot-deals";
-  // URL for fetching just trending data
-  const justTrendUrl = "https://resonate-api.cyclic.app/products/just-trending";
 
   // Have created Custom hook to fetch data from API
   const fetchData = async (url, setDataFunction) => {
@@ -31,7 +27,7 @@ const HomePage = () => {
     }
   };
 
-  // Fetch data on component mount
+  // Fetch data on component loaded
   useEffect(() => {
     fetchData(bestSellerUrl, setBestSellerData);
     fetchData(hotDealUrl, setHotDealData);

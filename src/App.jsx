@@ -6,14 +6,15 @@ import ErrorPage from "./pages/ErrorPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AboutPage from "./pages/AboutPage";
-import Watches from "./pages/Watches.ProductPage";
-import Earbuds from "./pages/Earbuds.ProductPage";
-import Laptops from "./pages/Laptops.ProductPage";
+import AllProducts from "./pages/AllProducts";
 import CartPage from "./pages/CartPage";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import { ToastContainer } from "react-toastify";
 import ScrollToTop from "./components/ScrollToTop";
+import { allWatchesUrl,allEarbudsUrl,allLaptopsUrl } from "./constants/product_Url";
+import { watchCategories,earbudsCategories,laptopsCategories } from "./constants/product_Categories";
+import { watchCoverImage,earbudsCoverImage,laptopsCoverImage } from "./constants/product_CoverImage";
 
 const AppLayout = () => {
   return (
@@ -38,20 +39,16 @@ export const appRouting = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/about",
-        element: <AboutPage />,
-      },
-      {
         path: "/products/allwatches",
-        element: <Watches />,
+        element: <AllProducts productUrl={allWatchesUrl} productCategories={watchCategories} productCoverImage={watchCoverImage}/>,
       },
       {
         path: "/products/allearbuds",
-        element: <Earbuds />,
+        element: <AllProducts productUrl={allEarbudsUrl} productCategories={earbudsCategories} productCoverImage={earbudsCoverImage}/>,
       },
       {
         path: "/products/alllaptops",
-        element: <Laptops />,
+        element: <AllProducts productUrl={allLaptopsUrl} productCategories={laptopsCategories} productCoverImage={laptopsCoverImage}/>,
       },
       {
         path: "/cart",

@@ -17,14 +17,14 @@ const HomeProducts = () => {
           <h2>Shop By Categories</h2>
         </div>
       </div>
-      <div className="row justify-content-around row-1 mx-2">
-        <div className="col-md-3 image-container rounded m-2">
+      <div className="row justify-content-around row-1 mx-2" style={{cursor:"pointer"}}>
+        <div className="col-md-3 image-container rounded m-2" onClick={()=>navigate("/products/allearbuds")}>
           <img src={HomeImg1} alt="Banner_Image" className="img-fluid" loading="lazy" />
         </div>
         <div className="col-md-3 image-container rounded m-2" onClick={()=>navigate("/products/allwatches")}>
           <img src={HomeImg2} alt="Banner_Image" className="img-fluid" loading="lazy" />
         </div>
-        <div className="col-md-5 image-container rounded m-2 bg-danger">
+        <div className="col-md-5 image-container rounded m-2 bg-danger" onClick={()=>navigate("/products/alllaptops")}>
           <img
             src={HomeImg3}
             alt="Banner_Image"
@@ -34,8 +34,8 @@ const HomeProducts = () => {
         </div>
       </div>
 
-      <div className="row justify-content-around row-2 mx-2">
-        <div className="col-md-5 image-container rounded m-2">
+      <div className="row justify-content-around row-2 mx-2" style={{cursor:"pointer"}}>
+        <div className="col-md-5 image-container rounded m-2" onClick={()=>navigate("/products/alllaptops")}>
           <img
             src={HomeImg4}
             alt="Banner_Image"
@@ -46,7 +46,7 @@ const HomeProducts = () => {
         <div className="col-md-3 image-container rounded m-2 ">
           <img src={HomeImg5} alt="Banner_Image" className="img-fluid" loading="lazy" onClick={()=>navigate("/products/allwatches")}/>
         </div>
-        <div className="col-md-3 image-container rounded m-2">
+        <div className="col-md-3 image-container rounded m-2" onClick={()=>navigate("/products/allearbuds")}>
           <img src={HomeImg6} alt="Banner_Image" className="img-fluid" loading="lazy" />
         </div>
       </div>
