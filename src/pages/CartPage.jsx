@@ -125,12 +125,6 @@ const CartPage = () => {
               <h1 className="modal-title fs-5" id="exampleModalLabel">
                 Resonate - A New Era
               </h1>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
             </div>
             <div className="modal-body">Your Order is Placed.Thankyou!!!</div>
             <div className="modal-footer">

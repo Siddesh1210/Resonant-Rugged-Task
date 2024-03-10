@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useParams } from "react-router-dom";
 
 const ViewProducts = ({ allProducts,categories }) => {
     console.log("All Products: " + allProducts);

@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
-    "locomotive-scroll": "^5.0.0-beta.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.0",
