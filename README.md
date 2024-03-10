@@ -1,7 +1,7 @@
 # Resonate - A New Era (App Build with Vite)
 
 # Description : 
-This is an E-commerce web application that allows users to view products, add and remove them to their cart, and view their cart contents. Also this project ensure to follow the Single Responsibility principle  and Component-Based Architecture.
+This is an E-commerce web application that allows users to view products, add and remove them to their cart, and view their cart contents. Also this project ensure to maintain proper folder strcuture and follow the Single Responsibility principle by each component.
 
 # Features
 1.View all products and filter them by category
@@ -15,7 +15,8 @@ This is an E-commerce web application that allows users to view products, add an
 3.Shimmer effect (To enhnace user experience will fetching data from API)
 4.Chunking or Dynamic Bundling (To optimize performance by code splitting)
 
-# Created API to fetch data from Backend Server [As cyclic.sh permit 1000 request per month so there might be chance of data not being fetched due to exxcess request because in dev. around [600-800 request is already done] so please let me know if any such incident occurs]
+# Created API to fetch data from Backend Server 
+[As cyclic.sh permit 1000 request per month so there might be chance of data not being fetched due to excess request because in development around [600-800 request is already done] so please let me know if any such incident occurs]
 
 # Backend API Github Repo : 
 https://github.com/Siddesh1210/Resonate-API-Backend
@@ -35,7 +36,6 @@ Also Image, Content and Design Credit to FireBoltt, Boat and Noise.
 3.Run npm install.
 4.Run npm run dev
 
-
 # Usage
 1.Browse to the homepage.
 2.Navigate to different section of Products 
@@ -46,5 +46,10 @@ Also Image, Content and Design Credit to FireBoltt, Boat and Noise.
 
 # Support
 If you encounter any issues or have questions, feel free to reach out to me @siddeshjaiswal12@gmail.com 
+
+# Future Work
+1.Adding Dynamic Routing using useParams Hook [Was trying now but app was getting broken]
+2.Detail about each Product already the API consist of product details, but due to some time constraints can't able to get that page
+3. Backend Setup and creating full working E-Commerce Application by integrating with razorpay payment gateway
 
 
