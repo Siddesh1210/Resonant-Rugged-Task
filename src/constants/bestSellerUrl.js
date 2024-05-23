@@ -1,2 +1,2 @@
   // URL for fetching best seller data
-  export const bestSellerUrl = "https://resonate-api.cyclic.app/products/best-seller";
+  export const bestSellerUrl = "https://resonate-api-backend.onrender.com/products/best-seller";

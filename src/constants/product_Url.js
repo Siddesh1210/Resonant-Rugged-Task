@@ -1,4 +1,4 @@
 //API URL of all particular products
-export const allWatchesUrl="https://resonate-api.cyclic.app/products/allwatches";
-export const allEarbudsUrl="https://resonate-api.cyclic.app/products/allearbuds";
-export const allLaptopsUrl="https://resonate-api.cyclic.app/products/alllaptops";
+export const allWatchesUrl="https://resonate-api-backend.onrender.com/products/allwatches";
+export const allEarbudsUrl="https://resonate-api-backend.onrender.com/products/allearbuds";
+export const allLaptopsUrl="https://resonate-api-backend.onrender.com/products/alllaptops";
